@@ -23,6 +23,7 @@ func (t *Trie) Insert(patterns string) {
 	path := strings.Split(patterns, "/")
 	var node = t.root
 	for k, v := range path {
+
 		node = node.getChilds(v)
 		fmt.Println(k, " node=", node)
 	}
@@ -56,6 +57,7 @@ func (t *Trie) Search(patterns string) (*node, bool) {
 	for _, v := range path {
 		var ok bool
 		node, ok = node.searchNodes(v)
+
 		if !ok {
 			return nil, false
 		}
